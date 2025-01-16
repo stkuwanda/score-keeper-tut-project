@@ -3,24 +3,83 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+		/>
 		<title>Score Keeper</title>
+		<style>
+			.winner {
+				color: aqua;
+			}
+			.loser {
+				color: pink;
+			}
+		</style>
 	</head>
 	<body>
-    <h1><span id="p1Score">0</span> of <span id="p2Score">0</span></h1>
-    <select name="" id="setWinningScore">
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </select>
-    <button id="p1Button">+1 Player One</button><button id="p2Button">+1 Player Two</button><button id="reset">Reset</button>
-    <script src="app.js"></script>
-  </body>
+		<section class="section">
+			<div class="container">
+				<div class="colums">
+					<div class="column is-half is-offset-one-quarter">
+						<div class="card">
+							<div class="card-image">
+								<figure class="image is-2by1">
+									<img
+										src="https://media.gettyimages.com/id/155418909/photo/tennis-ball-and-racket-on-the-court-horizontal.jpg?s=1024x1024&w=gi&k=20&c=OYNZquGeIw4QnVCwh8df6uCcjWB7WQL9KTecdMTuIZg="
+										alt="image of a tennis ball on a racket layed sown on a tennis court"
+									/>
+								</figure>
+							</div>
+							<header class="card-header">
+								<p class="card-header-title">Score Keeper App</p>
+							</header>
+							<div class="card-content">
+								<div class="content">
+									<h1 class="title is-1">
+										<span id="p1Score">0</span> of <span id="p2Score">0</span>
+									</h1>
+									<p class="subtitle">Use the buttons below to keep score</p>
+									<label for="setWinningScore" class="label is-large is-inline"
+										>Playing to:
+									</label>
+									<div class="select is-rounded">
+										<select name="" id="setWinningScore">
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<footer class="card-footer">
+								<button
+									class="button is-primary card-footer-item"
+									id="p1Button"
+								>
+									+1 Player One
+								</button>
+								<button class="button is-info card-footer-item" id="p2Button">
+									+1 Player Two
+								</button>
+								<button class="button is-danger card-footer-item" id="reset">
+									Reset
+								</button>
+							</footer>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="app.js"></script>
+	</body>
 </html>
