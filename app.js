@@ -21,13 +21,15 @@ p1Button.addEventListener('click', function () {
 				isGameOver = true;
 				p1Score.classList.add('has-text-success');
 				p2Score.classList.add('has-text-danger');
-        // alert('Player One Wins!');
-        const winner = document.createElement('p');
-        winner.classList.add('subtitle', 'has-text-success');
-        winner.textContent = 'Player One Wins!';
-        winnerContainer = winner;
-        const instruction = document.getElementById('instruction');
-        instruction.insertAdjacentElement('afterend', winnerContainer);
+				p1Button.disabled = true;
+				p2Button.disabled = true;
+				// alert('Player One Wins!');
+				const winner = document.createElement('p');
+				winner.classList.add('subtitle', 'has-text-success');
+				winner.textContent = 'Player One Wins!';
+				winnerContainer = winner;
+				const instruction = document.getElementById('instruction');
+				instruction.insertAdjacentElement('afterend', winnerContainer);
 			}
 		}
 });
@@ -41,13 +43,15 @@ p2Button.addEventListener('click', function () {
 				isGameOver = true;
 				p2Score.classList.add('has-text-success');
 				p1Score.classList.add('has-text-danger');
-        // alert('Player Two Wins!');
-        const winner = document.createElement('p');
-        winner.classList.add('subtitle', 'has-text-success');
-        winner.textContent = 'Player Two Wins!';
-        winnerContainer = winner;
-        const instruction = document.getElementById('instruction');
-        instruction.insertAdjacentElement('afterend', winnerContainer);
+				p1Button.disabled = true;
+				p2Button.disabled = true;
+				// alert('Player Two Wins!');
+				const winner = document.createElement('p');
+				winner.classList.add('subtitle', 'has-text-success');
+				winner.textContent = 'Player Two Wins!';
+				winnerContainer = winner;
+				const instruction = document.getElementById('instruction');
+				instruction.insertAdjacentElement('afterend', winnerContainer);
 			}
 		}
 });
@@ -64,22 +68,23 @@ resetButton.addEventListener('click', function () {
 });
 
 function reset(setScore = 3) {
-  resetScoreClasses();
+	resetScoreClasses();
 	p1ScoreTracker = 0;
 	p2ScoreTracker = 0;
+	p1Button.disabled = false;
+	p2Button.disabled = false;
 	isGameOver = false;
 	p1Score.innerText = 0;
 	p2Score.innerText = 0;
 	winningScore = setScore;
 
-  if(winnerContainer) {
-    winnerContainer.remove();
-    winnerContainer = null;
-  }
+	if (winnerContainer) {
+		winnerContainer.remove();
+		winnerContainer = null;
+	}
 }
 
 function resetScoreClasses() {
-  p1Score.classList.remove('has-text-success', 'has-text-danger');
-  p2Score.classList.remove('has-text-danger', 'has-text-success');
-
+	p1Score.classList.remove('has-text-success', 'has-text-danger');
+	p2Score.classList.remove('has-text-danger', 'has-text-success');
 }
