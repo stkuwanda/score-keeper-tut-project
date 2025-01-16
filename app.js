@@ -18,6 +18,8 @@ p1Button.addEventListener('click', function () {
 
 			if (p1ScoreTracker === winningScore) {
 				isGameOver = true;
+				p1Score.classList.add('winner');
+				p2Score.classList.add('loser');
 			}
 		}
 });
@@ -29,6 +31,8 @@ p2Button.addEventListener('click', function () {
 
 			if (p2ScoreTracker === winningScore) {
 				isGameOver = true;
+				p2Score.classList.add('winner');
+				p1Score.classList.add('loser');
 			}
 		}
 });
@@ -41,15 +45,21 @@ setWinningScore.addEventListener('change', function () {
 
 resetButton.addEventListener('click', function () {
 	reset();
-  setWinningScore.value = 3
+	setWinningScore.value = 3;
 });
 
 function reset(setScore = 3) {
-	// console.log(setScore); // debug logging
+  resetScoreClasses();
 	p1ScoreTracker = 0;
 	p2ScoreTracker = 0;
 	isGameOver = false;
 	p1Score.innerText = 0;
 	p2Score.innerText = 0;
 	winningScore = setScore;
+}
+
+function resetScoreClasses() {
+  p1Score.classList.remove('winner', 'loser');
+  p2Score.classList.remove('loser', 'winner');
+
 }
