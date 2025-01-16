@@ -11,3 +11,7 @@ let p1ScoreTracker = 0,
 p1Button.addEventListener('click', function () {
 	if (winningScore !== p1ScoreTracker) p1Score.innerText = ++p1ScoreTracker;
 });
+
+p2Button.addEventListener('click', function () {
+	if (winningScore !== p2ScoreTracker) p2Score.textContent = ++p2ScoreTracker;
+});
