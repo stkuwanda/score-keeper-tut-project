@@ -5,6 +5,7 @@ const resetButton = document.querySelector('#reset');
 const p1Score = document.querySelector('#p1Score');
 const p2Score = document.querySelector('#p2Score');
 const setWinningScore = document.querySelector('#setWinningScore');
+let winnerContainer = null;
 
 let p1ScoreTracker = 0,
 	p2ScoreTracker = 0,
@@ -18,8 +19,15 @@ p1Button.addEventListener('click', function () {
 
 			if (p1ScoreTracker === winningScore) {
 				isGameOver = true;
-				p1Score.classList.add('winner');
-				p2Score.classList.add('loser');
+				p1Score.classList.add('has-text-success');
+				p2Score.classList.add('has-text-danger');
+        // alert('Player One Wins!');
+        const winner = document.createElement('p');
+        winner.classList.add('subtitle', 'has-text-success');
+        winner.textContent = 'Player One Wins!';
+        winnerContainer = winner;
+        const instruction = document.getElementById('instruction');
+        instruction.insertAdjacentElement('afterend', winnerContainer);
 			}
 		}
 });
@@ -31,8 +39,15 @@ p2Button.addEventListener('click', function () {
 
 			if (p2ScoreTracker === winningScore) {
 				isGameOver = true;
-				p2Score.classList.add('winner');
-				p1Score.classList.add('loser');
+				p2Score.classList.add('has-text-success');
+				p1Score.classList.add('has-text-danger');
+        // alert('Player Two Wins!');
+        const winner = document.createElement('p');
+        winner.classList.add('subtitle', 'has-text-success');
+        winner.textContent = 'Player Two Wins!';
+        winnerContainer = winner;
+        const instruction = document.getElementById('instruction');
+        instruction.insertAdjacentElement('afterend', winnerContainer);
 			}
 		}
 });
@@ -56,10 +71,15 @@ function reset(setScore = 3) {
 	p1Score.innerText = 0;
 	p2Score.innerText = 0;
 	winningScore = setScore;
+
+  if(winnerContainer) {
+    winnerContainer.remove();
+    winnerContainer = null;
+  }
 }
 
 function resetScoreClasses() {
-  p1Score.classList.remove('winner', 'loser');
-  p2Score.classList.remove('loser', 'winner');
+  p1Score.classList.remove('has-text-success', 'has-text-danger');
+  p2Score.classList.remove('has-text-danger', 'has-text-success');
 
 }
