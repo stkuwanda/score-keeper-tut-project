@@ -1,6 +1,7 @@
 // alert('it\'s working!'); // test script
 const p1Button = document.querySelector('#p1Button');
 const p2Button = document.getElementById('p2Button');
+const resetButton = document.querySelector('#reset');
 const p1Score = document.querySelector('#p1Score');
 const p2Score = document.querySelector('#p2Score');
 
@@ -29,4 +30,12 @@ p2Button.addEventListener('click', function () {
 				isGameOver = true;
 			}
 		}
+});
+
+resetButton.addEventListener('click', function () {
+	p1ScoreTracker = 0;
+	p2ScoreTracker = 0;
+	isGameOver = false;
+	p1Score.innerText = 0;
+	p2Score.innerText = 0;
 });
